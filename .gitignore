@@ -1,0 +1,17 @@
+#
+# Do not add editor or OS specific ignores here. Have a look at adding
+# `excludesfile` to your `~/.gitconfig` to globally ignore such things.
+#
+*.egg-info/
+*.pyc
+.coverage
+.env
+/build/
+/config/
+coverage.xml
+dist/
+env/
+htmlcov/
+nosetests.xml
+output/
+tmp/

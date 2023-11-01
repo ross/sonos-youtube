@@ -1,0 +1,7 @@
+# Everything by default
+*
+# Explicitly include the bits we want
+# TODO: find a good way to keep this in sync
+!sonos_youtube/*.py
+!requirements.txt
+!script/run
