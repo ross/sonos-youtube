@@ -31,7 +31,6 @@ $ ./script/run
 
 In the Sonos apps:
 
-1. 
 1. "Browse"
 1. "TuneIn"
 1. "My Radio Stations"
