@@ -18,7 +18,7 @@ with TemporaryDirectory() as tmpdir:
     # base needs
     pkgs = [
         'flask>=3.0.0',
-        'pytube>=15.0.0',
+        'requests>=2.32.3',
         'waitress>=2.1.2',
     ]
     check_call([join(tmpdir, 'bin', 'pip'), 'install', *pkgs])
