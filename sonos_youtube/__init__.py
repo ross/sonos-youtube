@@ -50,7 +50,7 @@ class YouTube:
         resp.raise_for_status()
         match = self.hls_manifest_url_re.search(resp.content.decode('utf-8'))
         if match is None:
-            Exception('Failed to find url in html')
+            raise Exception('Failed to find url in html')
         return match.group('url')
 
 
