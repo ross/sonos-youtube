@@ -4,6 +4,7 @@ from logging import getLogger
 from logging.config import dictConfig
 from sys import argv
 from re import compile
+from yaml import safe_load
 
 from flask import Flask, redirect
 from requests import Session
@@ -83,12 +84,20 @@ def create_app():
 
     log = getLogger()
 
-    @app.route('/<string:vid>')
-    def youtube(vid):
+    # Load configuration from yaml file
+    with open("conf.yaml", "r") as f:
+        config = safe_load(f)
+
+    @app.route('/<string:stream_name>')  # Changed vid to stream_name
+    def youtube(stream_name):  # Changed vid to stream_name
+        # Get vid from config based on stream_name
+        vid = config.get(stream_name)
+        if not vid:
+            return "Stream not found", 404
         yt = YouTube(vid)
         url = yt.hls_manifest_url
         log.info('vid=%s -> url=%s', vid, url)
         return redirect(url, code=302)
 
-    log.info('Example URL: http://<host-fqdn>:<port>/jfKfPfyJRdk')
+    log.info('Example URL: http://<host-fqdn>:<port>/stream1')
     return app
